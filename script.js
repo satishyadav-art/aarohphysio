@@ -211,12 +211,38 @@ document.addEventListener('DOMContentLoaded', () => {
       dateInput.setAttribute('min', today);
     }
 
+    // Toggle Payment Details
+    const paymentRadios = document.querySelectorAll('input[name="paymentMethod"]');
+    const paymentDetails = document.getElementById('paymentDetails');
+    let lastSubmittedData = null;
+    
+    paymentRadios.forEach(radio => {
+      radio.addEventListener('change', (e) => {
+        if (e.target.value === 'Pay Now') {
+          paymentDetails.style.display = 'flex';
+        } else {
+          paymentDetails.style.display = 'none';
+        }
+      });
+    });
+
     form.addEventListener('submit', (e) => {
       e.preventDefault();
 
       if (!form.checkValidity()) {
         form.reportValidity();
         return;
+      }
+
+      // Check payment confirmation
+      const paymentMethodRadio = document.querySelector('input[name="paymentMethod"]:checked');
+      if (paymentMethodRadio && paymentMethodRadio.value === 'Pay Now') {
+        const confirmCheck = document.getElementById('paymentConfirmCheck');
+        if (!confirmCheck.checked) {
+          alert('Please complete the payment and check the confirmation box to book your appointment.');
+          confirmCheck.focus();
+          return;
+        }
       }
 
       // Gather form data
@@ -229,6 +255,9 @@ document.addEventListener('DOMContentLoaded', () => {
       const date = document.getElementById('prefDate').value;
       const time = document.getElementById('prefTime').value;
       const msg = document.getElementById('message').value.trim();
+      const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
+      
+      lastSubmittedData = { name, phone, email, service, doctor, location, date, time, paymentMethod, msg };
 
       // Format the WhatsApp message
       let waMessage = `🏥 *New Appointment Request*\n`;
@@ -241,6 +270,7 @@ document.addEventListener('DOMContentLoaded', () => {
       waMessage += `📍 *Location:* ${location}\n`;
       waMessage += `📅 *Date:* ${date}\n`;
       waMessage += `⏰ *Time:* ${time}\n`;
+      waMessage += `💳 *Payment:* ${paymentMethod}\n`;
       if (msg) waMessage += `📝 *Message:* ${msg}\n`;
       waMessage += `━━━━━━━━━━━━━━━━━━━\n`;
       waMessage += `Sent from Aaroh Physiotherapy Website`;
@@ -258,15 +288,81 @@ document.addEventListener('DOMContentLoaded', () => {
         submitBtn.style.background = 'linear-gradient(135deg, #10b981, #34d399)';
         formSuccess.classList.add('show');
         form.reset();
+        paymentDetails.style.display = 'none';
 
         setTimeout(() => {
           submitBtn.disabled = false;
           submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Appointment Request';
           submitBtn.style.background = '';
-          formSuccess.classList.remove('show');
-        }, 5000);
+        }, 3000);
       }, 800);
     });
+
+    const downloadReceiptBtn = document.getElementById('downloadReceiptBtn');
+    if (downloadReceiptBtn) {
+      downloadReceiptBtn.addEventListener('click', () => {
+        if (!lastSubmittedData) return;
+        
+        const receiptWindow = window.open('', '_blank');
+        const d = lastSubmittedData;
+        const receiptDate = new Date().toLocaleString();
+        
+        const html = `
+          <!DOCTYPE html>
+          <html>
+          <head>
+            <title>Booking Receipt - Aaroh Physiotherapy</title>
+            <style>
+              body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 40px; color: #333; }
+              .receipt-container { max-width: 600px; margin: 0 auto; border: 1px solid #ddd; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+              .header { text-align: center; border-bottom: 2px solid #0d9488; padding-bottom: 20px; margin-bottom: 20px; }
+              .header h1 { color: #0d9488; margin: 0 0 10px 0; }
+              .header p { margin: 0; color: #666; }
+              .details-table { width: 100%; border-collapse: collapse; margin-bottom: 30px; }
+              .details-table th, .details-table td { padding: 12px; border-bottom: 1px solid #eee; text-align: left; }
+              .details-table th { width: 40%; color: #555; font-weight: 600; }
+              .amount-row { background: #f0fdf4; font-weight: bold; color: #065f46; }
+              .footer { text-align: center; font-size: 0.9em; color: #777; margin-top: 30px; border-top: 1px solid #eee; padding-top: 20px; }
+              .print-btn { display: block; width: 100%; padding: 15px; background: #0d9488; color: white; border: none; font-size: 16px; cursor: pointer; border-radius: 5px; margin-top: 20px; }
+              @media print { .print-btn { display: none; } .receipt-container { box-shadow: none; border: none; padding: 0; } }
+            </style>
+          </head>
+          <body>
+            <div class="receipt-container">
+              <div class="header">
+                <h1>AAROH Physiotherapy & Rehabilitation Center</h1>
+                <p>Provisional Booking Receipt</p>
+                <p style="font-size: 0.85em; margin-top: 5px;">Generated on: ${receiptDate}</p>
+              </div>
+              <table class="details-table">
+                <tr><th>Patient Name</th><td>${d.name}</td></tr>
+                <tr><th>Phone Number</th><td>${d.phone}</td></tr>
+                <tr><th>Service Requested</th><td>${d.service}</td></tr>
+                <tr><th>Assigned Doctor</th><td>${d.doctor}</td></tr>
+                <tr><th>Appointment Date</th><td>${d.date}</td></tr>
+                <tr><th>Appointment Time</th><td>${d.time}</td></tr>
+                <tr><th>Payment Method</th><td>${d.paymentMethod}</td></tr>
+                <tr><th>Payment Status</th><td style="font-weight: bold; color: ${d.paymentMethod === 'Pay Now' ? '#10b981' : '#f59e0b'};">${d.paymentMethod === 'Pay Now' ? 'PAID' : 'PENDING'}</td></tr>
+                <tr class="amount-row"><th>Consultation Fee</th><td>₹400</td></tr>
+              </table>
+              
+              <div class="footer">
+                <p><strong>Note:</strong> This is a provisional booking acknowledgement generated from the website. If you selected "Pay Now", your appointment will be confirmed upon payment realization via PhonePe/UPI.</p>
+                <p>Clinic Address: Lucknow, Uttar Pradesh | Phone: +91 9026360072</p>
+              </div>
+              <button class="print-btn" onclick="window.print()">Print / Save as PDF</button>
+            </div>
+            <script>
+              window.onload = function() { window.print(); }
+            </script>
+          </body>
+          </html>
+        `;
+        
+        receiptWindow.document.write(html);
+        receiptWindow.document.close();
+      });
+    }
   }
 
   // ────────────────────────────────────────────────

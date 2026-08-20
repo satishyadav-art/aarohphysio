@@ -347,9 +347,9 @@
           <div class="why-icon">
             <i class="fas fa-tags"></i>
           </div>
-          <h3>Affordable Treatment</h3>
-          <p>Quality healthcare should be accessible to everyone. Our treatments start from just <strong>₹400 – ₹500</strong>. No compromises on quality.</p>
-        </div>
+            <h3>Affordable Treatment</h3>
+            <p>Quality healthcare should be accessible to everyone. Our treatments start from just <strong>₹400</strong>. No compromises on quality.</p>
+          </div>
       </div>
     </div>
   </section>
@@ -458,12 +458,57 @@
               <label for="message">Message / Symptoms</label>
               <textarea id="message" name="message" rows="3" placeholder="Briefly describe your condition or any specific concerns..."></textarea>
             </div>
+            
+            <div class="form-group payment-section">
+              <label>Payment Preference *</label>
+              <div class="payment-options">
+                <label class="payment-radio">
+                  <input type="radio" name="paymentMethod" value="Cash on Service" required>
+                  <span class="radio-custom"></span>
+                  Cash on Service
+                </label>
+                <label class="payment-radio">
+                  <input type="radio" name="paymentMethod" value="Pay Now" required>
+                  <span class="radio-custom"></span>
+                  Pay Now (QR Code)
+                </label>
+              </div>
+              
+              <div class="payment-details" id="paymentDetails" style="display: none; flex-direction: column; align-items: stretch;">
+                <div style="display: flex; gap: 24px; align-items: center; flex-wrap: wrap;">
+                  <div class="qr-box">
+                    <a href="upi://pay?pa=Q387168139@ybl&pn=Aaroh%20Physiotherapy&cu=INR" title="Click to pay via UPI app">
+                      <img src="payment_qr.jpg" alt="UPI QR Code" class="qr-img">
+                    </a>
+                    <p>Scan or Click to Pay ₹400</p>
+                  </div>
+                  <div class="bank-details">
+                    <h4>Account Details</h4>
+                    <p><strong>Account Name:</strong> Aaroh Physiotherapy</p>
+                    <p><strong>UPI ID:</strong> Q387168139@ybl</p>
+                  </div>
+                </div>
+                
+                <div class="payment-verification" style="margin-top: 15px; border-top: 1px solid rgba(13,148,136,0.3); padding-top: 15px;">
+                  <label class="payment-radio" style="color: #065f46; font-weight: 600;">
+                    <input type="checkbox" id="paymentConfirmCheck">
+                    <span class="radio-custom" style="border-radius: 4px;"></span>
+                    I confirm that I have successfully completed the payment.
+                  </label>
+                </div>
+              </div>
+            </div>
+
             <button type="submit" class="btn btn-primary btn-full" id="submitApptBtn">
               <i class="fas fa-paper-plane"></i> Send Appointment Request
             </button>
             <div class="form-success" id="formSuccess">
               <i class="fas fa-check-circle"></i>
-              <strong>Request Sent!</strong> We'll confirm your appointment shortly.
+              <strong>Request Sent!</strong> Please complete your request on WhatsApp.
+              <br><br>
+              <button type="button" class="btn" id="downloadReceiptBtn" style="background: white; color: #10b981; border: 1px solid #10b981; padding: 8px 16px; width: 100%;">
+                <i class="fas fa-file-invoice"></i> Download Booking Receipt
+              </button>
             </div>
           </form>
         </div>
