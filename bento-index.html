@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aaroh Physiotherapy | Bento Grid UI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/jpeg" href="logo.jpg" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="bento-styles.css" />
+</head>
+<body>
+  
+  <div class="app-container">
+    <!-- Navbar -->
+    <nav class="bento-nav bento-glass panel-float">
+      <div class="nav-brand">
+        <img src="logo.jpg" alt="Aaroh Logo" class="nav-logo-img" />
+        <div class="nav-text">
+          <h1>AAROH</h1>
+          <span>Physiotherapy & Rehab</span>
+        </div>
+      </div>
+      <div class="nav-actions">
+        <a href="tel:+919026360072" class="btn btn-primary pulse"><i class="fas fa-phone"></i> +91 90263 60072</a>
+      </div>
+    </nav>
+
+    <!-- Main Bento Grid -->
+    <main class="bento-grid">
+      
+      <!-- 1. Hero Card (Spans 2 columns) -->
+      <div class="bento-card bento-hero bento-glass panel-float" style="grid-column: span 2; grid-row: span 2;">
+        <div class="hero-content">
+          <div class="badge"><i class="fas fa-award"></i> Trusted in Lucknow</div>
+          <h2 class="hero-title">Restoring Movement.<br>Rebuilding Life.</h2>
+          <p class="hero-desc">Expert physiotherapy & rehabilitation services to help you recover faster and move better.</p>
+          <div class="hero-actions">
+            <button class="btn btn-gradient" onclick="document.getElementById('appointmentModal').classList.add('active')">
+              <i class="fas fa-calendar-check"></i> Book Session
+            </button>
+            <a href="https://wa.me/919026360072" target="_blank" class="btn btn-outline">
+              <i class="fab fa-whatsapp"></i> Chat
+            </a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <svg viewBox="0 0 200 200" fill="none" class="floating-svg">
+            <circle cx="100" cy="100" r="80" stroke="url(#tealGrad)" stroke-width="8" stroke-dasharray="20 10">
+              <animateTransform attributeName="transform" type="rotate" from="0 100 100" to="360 100 100" dur="20s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="100" cy="100" r="60" stroke="url(#greenGrad)" stroke-width="4" stroke-dasharray="10 10" opacity="0.6">
+              <animateTransform attributeName="transform" type="rotate" from="360 100 100" to="0 100 100" dur="15s" repeatCount="indefinite" />
+            </circle>
+            <path d="M 80 120 Q 100 80 120 120" stroke="#63f5be" stroke-width="4" stroke-linecap="round"/>
+            <circle cx="100" cy="80" r="10" fill="#0d9488" />
+            <defs>
+              <linearGradient id="tealGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#0d9488" />
+                <stop offset="100%" stop-color="#14b8a6" />
+              </linearGradient>
+              <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#63f5be" />
+                <stop offset="100%" stop-color="#10b981" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+      </div>
+
+      <!-- 2. Services List -->
+      <div class="bento-card bento-services bento-glass panel-float" style="grid-row: span 2;">
+        <h3><i class="fas fa-stethoscope"></i> Our Services</h3>
+        <div class="service-list-scroll">
+          <div class="service-item">
+            <div class="icon" style="background:#0d9488;"><i class="fas fa-bone"></i></div>
+            <div class="text"><strong>Orthopedics</strong><span>Joint & Bone Care</span></div>
+          </div>
+          <div class="service-item">
+            <div class="icon" style="background:#6366f1;"><i class="fas fa-brain"></i></div>
+            <div class="text"><strong>Neurological</strong><span>Stroke & Nerve Rehab</span></div>
+          </div>
+          <div class="service-item">
+            <div class="icon" style="background:#f59e0b;"><i class="fas fa-running"></i></div>
+            <div class="text"><strong>Sports Injury</strong><span>Athletic Recovery</span></div>
+          </div>
+          <div class="service-item">
+            <div class="icon" style="background:#ec4899;"><i class="fas fa-child"></i></div>
+            <div class="text"><strong>Pediatrics</strong><span>Child Development</span></div>
+          </div>
+          <div class="service-item">
+            <div class="icon" style="background:#0ea5e9;"><img src="cupping-logo.jpg" alt="Cupping" style="width:24px;border-radius:50%;" /></div>
+            <div class="text"><strong>Cupping</strong><span>Therapy</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Stats Card -->
+      <div class="bento-card bento-stats bento-glass panel-float dark-card text-center" style="grid-column: span 1;">
+        <i class="fas fa-users" style="font-size:2rem;color:#63f5be;margin-bottom:10px;"></i>
+        <h2 class="stat-number">500+</h2>
+        <p class="stat-label">Happy Patients</p>
+      </div>
+
+      <!-- 4. Experience Card -->
+      <div class="bento-card bento-stats bento-glass panel-float gradient-card text-center" style="grid-column: span 1;">
+        <i class="fas fa-award" style="font-size:2rem;color:white;margin-bottom:10px;"></i>
+        <h2 class="stat-number">10+</h2>
+        <p class="stat-label">Years of Expertise</p>
+      </div>
+
+      <!-- 5. Map / Location -->
+      <div class="bento-card bento-map bento-glass panel-float" style="grid-column: span 2;">
+        <h3><i class="fas fa-map-marker-alt"></i> Location: Vikas Nagar, Lucknow</h3>
+        <div class="map-wrapper">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3558.5!2d80.9340!3d26.8830!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjbCsDUyJzU4LjgiTiA4MMKwNTYnMDIuNCJF!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+          </iframe>
+        </div>
+      </div>
+
+      <!-- 6. Doctors / Experts -->
+      <div class="bento-card bento-doctors bento-glass panel-float">
+        <h3><i class="fas fa-user-md"></i> Expert Team</h3>
+        <ul class="doctor-list">
+          <li><strong>Dr. Belal Ahmed</strong> <span>BPT, MPT</span></li>
+          <li><strong>Dr. Swayamprabha R.</strong> <span>BPT, MPT</span></li>
+          <li><strong>Dr. Shashi Prakesh Y.</strong> <span>BPT, MPT</span></li>
+        </ul>
+      </div>
+    </main>
+
+  </div>
+
+  <!-- Appointment Modal -->
+  <div class="modal" id="appointmentModal">
+    <div class="modal-content bento-glass panel-float">
+      <div class="modal-header">
+        <h3>Book Session</h3>
+        <button class="close-btn" onclick="document.getElementById('appointmentModal').classList.remove('active')"><i class="fas fa-times"></i></button>
+      </div>
+      <form class="bento-form" onsubmit="event.preventDefault(); alert('Appointment Request Sent!'); document.getElementById('appointmentModal').classList.remove('active');">
+        <input type="text" placeholder="Full Name" required />
+        <input type="tel" placeholder="Phone Number" required />
+        <select required>
+          <option value="">Select Service...</option>
+          <option>Orthopedics</option>
+          <option>Neurological</option>
+          <option>Sports Injury</option>
+          <option>Home Visit</option>
+        </select>
+        <button type="submit" class="btn btn-gradient" style="width:100%;margin-top:10px;">Confirm Request</button>
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>

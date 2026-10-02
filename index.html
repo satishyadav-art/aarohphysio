@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Aaroh Physiotherapy & Rehabilitation | Lucknow</title>
-  <meta name="description" content="Aaroh Physiotherapy & Rehabilitation in Vikas Nagar, Lucknow offers expert physiotherapy, neurological rehabilitation, sports injury treatment, and more. Call +91 90263 60072." />
+  <meta name="description"
+    content="Aaroh Physiotherapy & Rehabilitation in Vikas Nagar, Lucknow offers expert physiotherapy, neurological rehabilitation, sports injury treatment, and more. Call +91 90263 60072." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
   <link rel="icon" type="image/jpeg" href="logo.jpg" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
 
   <!-- ===== NAVBAR ===== -->
@@ -42,106 +47,70 @@
   </nav>
 
   <!-- ===== HERO ===== -->
-  <section class="hero" id="home">
-    <div class="hero-bg">
-      <div class="hero-orb orb-1"></div>
-      <div class="hero-orb orb-2"></div>
-      <div class="hero-orb orb-3"></div>
-      <div class="hero-grid"></div>
-    </div>
-    <div class="hero-content">
-      <div class="hero-badge">
-        <i class="fas fa-award"></i> Trusted Physiotherapy Center in Lucknow
-      </div>
-      <h1 class="hero-title">
-        Restoring Movement.<br />
-        <span class="hero-title-accent">Rebuilding Life.</span>
-      </h1>
-      <p class="hero-subtitle">
-        Expert physiotherapy and rehabilitation services to help you recover faster, move better, and live pain-free. Compassionate care tailored just for you.
-      </p>
-      <div class="hero-btns">
-        <a href="#appointment" class="btn btn-primary" id="heroBookBtn">
-          <i class="fas fa-calendar-check"></i> Book Appointment
-        </a>
-        <a href="#services" class="btn btn-outline" id="heroServicesBtn">
-          <i class="fas fa-stethoscope"></i> Our Services
-        </a>
-      </div>
-      <div class="hero-contacts">
-        <a href="tel:+919026360072" class="hero-contact-chip">
-          <i class="fas fa-phone-alt"></i> +91 90263 60072
-        </a>
-      </div>
-    </div>
-    <div class="hero-visual">
-      <div class="hero-card-float card-top">
-        <i class="fas fa-user-md"></i>
-        <div>
-          <strong>Expert Therapists</strong>
-          <span>Certified Professionals</span>
+  <section class="hero" id="home" style="position: relative; overflow: hidden; background: #000;">
+    <video autoplay loop muted playsinline style="position: absolute; top: 0; right: 0; left: auto; width: 50%; height: 100%; object-fit: contain; z-index: 0; opacity: 0.9;">
+      <source src="https://apex-physiotherapy.vercel.app/assets/videos/hero-figure-loop.mp4" type="video/mp4" />
+    </video>
+    <div class="hero-overlay-pane" style="position: relative; z-index: 1;">
+      <h1 class="hero-header">Aaroh Physiotherapy & Rehabilitation, <em>Lucknow</em></h1>
+
+      <div class="hero-info-list">
+        <div class="hero-info-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <div>
+            <p>3/117, Near Patanjali Store, Sector 3, Vikas Nagar,<br>Lucknow, Uttar Pradesh 226022</p>
+            <a href="https://maps.google.com/?q=Vikas+Nagar+Sector+3+Lucknow" target="_blank" class="hero-link">Get
+              Direction &nearr;</a>
+          </div>
+        </div>
+        <div class="hero-info-item">
+          <i class="far fa-envelope"></i>
+          <p>aarohphysio@gmail.com</p> /* Placeholder email */
+        </div>
+        <div class="hero-info-item">
+          <i class="fas fa-globe"></i>
+          <p>Visit Website</p>
         </div>
       </div>
-      <div class="hero-illustration">
-        <svg viewBox="0 0 400 450" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- Body Silhouette -->
-          <ellipse cx="200" cy="80" rx="45" ry="45" fill="url(#headGrad)" opacity="0.9"/>
-          <!-- Torso -->
-          <path d="M155 130 Q135 200 140 280 L260 280 Q265 200 245 130 Z" fill="url(#bodyGrad)" opacity="0.85"/>
-          <!-- Arms -->
-          <path d="M155 150 Q100 190 90 240" stroke="url(#limbGrad)" stroke-width="22" stroke-linecap="round"/>
-          <path d="M245 150 Q300 190 310 240" stroke="url(#limbGrad)" stroke-width="22" stroke-linecap="round"/>
-          <!-- Legs -->
-          <path d="M170 280 Q160 350 155 400" stroke="url(#limbGrad)" stroke-width="22" stroke-linecap="round"/>
-          <path d="M230 280 Q240 350 245 400" stroke="url(#limbGrad)" stroke-width="22" stroke-linecap="round"/>
-          <!-- Spine indicator -->
-          <path d="M200 130 L200 280" stroke="rgba(255,255,255,0.3)" stroke-width="3" stroke-dasharray="6,4"/>
-          <!-- Pulse lines -->
-          <path d="M60 220 L100 220 L115 180 L135 260 L155 220 L340 220" stroke="rgba(99,245,190,0.8)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <animate attributeName="stroke-dashoffset" from="400" to="0" dur="2s" repeatCount="indefinite"/>
-            <animate attributeName="opacity" values="1;0.4;1" dur="2s" repeatCount="indefinite"/>
-          </path>
-          <!-- Glow dots on joints -->
-          <circle cx="90" cy="240" r="8" fill="rgba(99,245,190,0.7)">
-            <animate attributeName="r" values="8;12;8" dur="2s" repeatCount="indefinite"/>
-            <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" repeatCount="indefinite"/>
-          </circle>
-          <circle cx="310" cy="240" r="8" fill="rgba(99,245,190,0.7)">
-            <animate attributeName="r" values="8;12;8" dur="2.3s" repeatCount="indefinite"/>
-          </circle>
-          <circle cx="155" cy="400" r="8" fill="rgba(99,245,190,0.7)">
-            <animate attributeName="r" values="8;12;8" dur="1.8s" repeatCount="indefinite"/>
-          </circle>
-          <circle cx="245" cy="400" r="8" fill="rgba(99,245,190,0.7)">
-            <animate attributeName="r" values="8;12;8" dur="2.1s" repeatCount="indefinite"/>
-          </circle>
-          <defs>
-            <linearGradient id="headGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#63f5be"/>
-              <stop offset="100%" stop-color="#0d9488"/>
-            </linearGradient>
-            <linearGradient id="bodyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#0d9488"/>
-              <stop offset="100%" stop-color="#0a6e6e"/>
-            </linearGradient>
-            <linearGradient id="limbGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#0d9488"/>
-              <stop offset="100%" stop-color="#63f5be"/>
-            </linearGradient>
-          </defs>
-        </svg>
-      </div>
-      <div class="hero-card-float card-bottom">
-        <i class="fas fa-smile-beam"></i>
-        <div>
-          <strong>98% Satisfaction</strong>
-          <span>Happy Patients</span>
+
+      <div class="hero-action-row">
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <a href="tel:+919026360072" class="btn-hero-call">
+            <i class="fas fa-phone-alt"></i> 090263 60072
+          </a>
+          <a href="https://wa.me/919026360072" target="_blank" class="btn-hero-call"
+            style="background:#25D366; border-color:#25D366; color:white;">
+            <i class="fab fa-whatsapp" style="color:white;"></i> WhatsApp Us
+          </a>
         </div>
+        <a href="#appointment" class="btn-hero-book"
+          style="height: 100%; display: flex; align-items: center; justify-content: center;">
+          Book Appointment &nearr;
+        </a>
       </div>
     </div>
-    <div class="hero-scroll-hint">
-      <span>Scroll Down</span>
-      <div class="scroll-dot"></div>
+
+    <!-- Rating badge floated on the right side of hero -->
+    <div class="hero-rating-badge">
+      <div class="stars">
+        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+          class="fas fa-star"></i>
+      </div>
+      <div class="rating-text">4.8 Google Ratings</div>
+      <div class="availability">
+        <small>Available</small>
+        <strong>24/7</strong> /* Assumed or can be adjusted based on standard hospital UI */
+      </div>
+    </div>
+
+    <!-- Floating Search Bar at Bottom -->
+    <div class="hero-search-bar" style="position: relative;">
+      <input type="text" id="serviceSearchInput" placeholder="Search Health Care Package, Specialities, Conditions ...">
+      <button class="search-btn"><i class="fas fa-search"></i></button>
+
+      <div class="search-results-box" id="searchResults">
+        <!-- JS will populate results here -->
+      </div>
     </div>
   </section>
 
@@ -151,22 +120,11 @@
       <div class="about-grid">
         <div class="about-image-block fade-in">
           <div class="about-img-wrap">
-            <div class="about-svg-wrap">
-              <svg viewBox="0 0 380 400" xmlns="http://www.w3.org/2000/svg">
-                <rect width="380" height="400" rx="24" fill="url(#aboutBg)"/>
-                <!-- Cross Symbol -->
-                <rect x="160" y="80" width="60" height="180" rx="12" fill="rgba(255,255,255,0.2)"/>
-                <rect x="100" y="140" width="180" height="60" rx="12" fill="rgba(255,255,255,0.2)"/>
-                <!-- Stethoscope icon -->
-                <circle cx="190" cy="290" r="45" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.4)" stroke-width="3"/>
-                <text x="190" y="300" text-anchor="middle" font-size="36" fill="white">🩺</text>
-                <defs>
-                  <linearGradient id="aboutBg" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="#0a5c5c"/>
-                    <stop offset="100%" stop-color="#0d9488"/>
-                  </linearGradient>
-                </defs>
-              </svg>
+            <div class="about-photo-wrap"
+              style="border-radius:24px; overflow:hidden; box-shadow:0 20px 60px rgba(16,185,129,0.22);">
+              <img src="expert.jpg" alt="Physiotherapy Expert" id="expertPhotoPlaceholder"
+                style="width: 100%; height: 440px; object-fit: cover;"
+                onerror="this.src='https://via.placeholder.com/400x440?text=Please+Add+expert.jpg+to+folder'" />
             </div>
             <div class="about-badge-card">
               <i class="fas fa-certificate"></i>
@@ -177,11 +135,16 @@
         <div class="about-content fade-in">
           <div class="section-tag"><i class="fas fa-info-circle"></i> About Us</div>
           <h2 class="section-title">Dedicated to Your <span class="accent">Recovery & Wellness</span></h2>
-          <p class="about-text">At <strong>Aaroh Physiotherapy & Rehabilitation</strong>, we believe every patient deserves personalized, compassionate care. Our team of certified physiotherapists is committed to helping you recover from pain and injury, regain full mobility, and return to the life you love.</p>
-          <p class="about-text">We use the latest evidence-based techniques combined with advanced therapeutic equipment to provide the most effective treatment for each individual. From orthopedic injuries to neurological conditions, we're here for you every step of the way.</p>
+          <p class="about-text">At <strong>Aaroh Physiotherapy & Rehabilitation</strong>, we believe every patient
+            deserves personalized, compassionate care. Our team of certified physiotherapists is committed to helping
+            you recover from pain and injury, regain full mobility, and return to the life you love.</p>
+          <p class="about-text">We use the latest evidence-based techniques combined with advanced therapeutic equipment
+            to provide the most effective treatment for each individual. From orthopedic injuries to neurological
+            conditions, we're here for you every step of the way.</p>
           <div class="about-mission">
             <div class="mission-icon"><i class="fas fa-bullseye"></i></div>
-            <p><em>"To restore mobility, reduce pain, and improve quality of life through compassionate, evidence-based physiotherapy."</em></p>
+            <p><em>"To restore mobility, reduce pain, and improve quality of life through compassionate, evidence-based
+                physiotherapy."</em></p>
           </div>
           <div class="stats-grid">
             <div class="stat-card">
@@ -212,79 +175,89 @@
       <div class="section-header fade-in">
         <div class="section-tag"><i class="fas fa-stethoscope"></i> What We Offer</div>
         <h2 class="section-title">Our <span class="accent">Specialized Services</span></h2>
-        <p class="section-subtitle">Comprehensive physiotherapy solutions designed for your complete recovery and lasting health.</p>
+        <p class="section-subtitle">Comprehensive physiotherapy solutions designed for your complete recovery and
+          lasting health.</p>
       </div>
       <div class="services-grid">
         <div class="service-card fade-in" id="svc-ortho">
-          <div class="service-icon-wrap" style="--icon-color: #0d9488;">
-            <i class="fas fa-bone"></i>
+          <div class="service-icon-wrap">
+            <img src="ortho.jpg" alt="Orthopedic Physiotherapy" class="service-img" />
           </div>
           <h3>Orthopedic Physiotherapy</h3>
-          <p>Treatment of musculoskeletal conditions including fractures, joint pain, ligament injuries, and post-operative recovery.</p>
+          <p>Treatment of musculoskeletal conditions including fractures, joint pain, ligament injuries, and
+            post-operative recovery.</p>
           <div class="service-tag">Most Popular</div>
         </div>
         <div class="service-card fade-in" id="svc-neuro">
-          <div class="service-icon-wrap" style="--icon-color: #6366f1;">
-            <i class="fas fa-brain"></i>
+          <div class="service-icon-wrap">
+            <img src="neuro.jpg" alt="Neurological Rehabilitation" class="service-img" />
           </div>
           <h3>Neurological Rehabilitation</h3>
-          <p>Specialized therapy for neurological disorders including Parkinson's, multiple sclerosis, and brain injury recovery.</p>
+          <p>Specialized therapy for neurological disorders including Parkinson's, multiple sclerosis, and brain injury
+            recovery.</p>
         </div>
         <div class="service-card fade-in" id="svc-sports">
-          <div class="service-icon-wrap" style="--icon-color: #f59e0b;">
-            <i class="fas fa-running"></i>
+          <div class="service-icon-wrap">
+            <img src="sports.jpg" alt="Sports Injury Treatment" class="service-img" />
           </div>
           <h3>Sports Injury Treatment</h3>
-          <p>Expert care for athletes — from acute sports injuries to chronic overuse conditions — to get you back in the game.</p>
+          <p>Expert care for athletes — from acute sports injuries to chronic overuse conditions — to get you back in
+            the game.</p>
         </div>
         <div class="service-card fade-in" id="svc-post-surg">
-          <div class="service-icon-wrap" style="--icon-color: #ef4444;">
-            <i class="fas fa-procedures"></i>
+          <div class="service-icon-wrap">
+            <img src="surgery.jpg" alt="Post-Surgical Rehabilitation" class="service-img" />
           </div>
           <h3>Post-Surgical Rehabilitation</h3>
-          <p>Structured recovery programs to restore strength, mobility, and function following orthopedic and other surgeries.</p>
+          <p>Structured recovery programs to restore strength, mobility, and function following orthopedic and other
+            surgeries.</p>
         </div>
         <div class="service-card fade-in" id="svc-pediatric">
-          <div class="service-icon-wrap" style="--icon-color: #ec4899;">
-            <i class="fas fa-child"></i>
+          <div class="service-icon-wrap">
+            <img src="pediatric.jpg" alt="Pediatric Physiotherapy" class="service-img" />
           </div>
           <h3>Pediatric Physiotherapy</h3>
-          <p>Gentle, child-friendly therapy addressing developmental delays, cerebral palsy, and other pediatric conditions.</p>
+          <p>Gentle, child-friendly therapy addressing developmental delays, cerebral palsy, and other pediatric
+            conditions.</p>
         </div>
         <div class="service-card fade-in" id="svc-electro">
-          <div class="service-icon-wrap" style="--icon-color: #14b8a6;">
-            <i class="fas fa-bolt"></i>
+          <div class="service-icon-wrap">
+            <img src="electro.jpg" alt="Electrotherapy & Ultrasound" class="service-img" />
           </div>
           <h3>Electrotherapy & Ultrasound</h3>
-          <p>Advanced modalities including TENS, IFT, and therapeutic ultrasound for effective pain relief and healing.</p>
+          <p>Advanced modalities including TENS, IFT, and therapeutic ultrasound for effective pain relief and healing.
+          </p>
         </div>
         <div class="service-card fade-in" id="svc-spinal">
-          <div class="service-icon-wrap" style="--icon-color: #8b5cf6;">
-            <i class="fas fa-spine"></i>
+          <div class="service-icon-wrap">
+            <img src="spinal.jpg" alt="Spinal & Neck Pain" class="service-img" />
           </div>
           <h3>Spinal & Neck Pain</h3>
-          <p>Targeted treatment for spondylosis, disc herniation, sciatica, and chronic neck and back pain conditions.</p>
+          <p>Targeted treatment for spondylosis, disc herniation, sciatica, and chronic neck and back pain conditions.
+          </p>
         </div>
         <div class="service-card fade-in" id="svc-stroke">
-          <div class="service-icon-wrap" style="--icon-color: #f97316;">
-            <i class="fas fa-hand-holding-heart"></i>
+          <div class="service-icon-wrap">
+            <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=400&q=80" alt="Stroke Rehabilitation" class="service-img" />
           </div>
           <h3>Stroke Rehabilitation</h3>
           <p>Intensive rehabilitation programs helping stroke survivors regain movement, speech, and independence.</p>
         </div>
         <div class="service-card fade-in" id="svc-cupping">
-          <div class="service-icon-wrap" style="--icon-color: #0ea5e9;">
+          <div class="service-icon-wrap">
             <img src="cupping-logo.jpg" alt="Cupping Therapy" class="service-img" />
           </div>
           <h3>Cupping Therapy</h3>
-          <p>Traditional cupping therapy to promote blood flow, ease muscle tension, and accelerate the body's natural healing.</p>
+          <p>Traditional cupping therapy to promote blood flow, ease muscle tension, and accelerate the body's natural
+            healing.</p>
         </div>
         <div class="service-card fade-in" id="svc-home">
-          <div class="service-icon-wrap" style="--icon-color: #10b981;">
-            <i class="fas fa-home"></i>
+          <div class="service-icon-wrap">
+            <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=400&q=80" alt="Home Visit Services" class="service-img" />
           </div>
           <h3>Home Visit Services</h3>
-          <p>Convenient, professional physiotherapy sessions in the comfort of your own home for those unable to travel.</p>
+          <p>Convenient, professional physiotherapy sessions in the comfort of your own home for those unable to travel.
+          </p>
         </div>
       </div>
     </div>
@@ -305,7 +278,7 @@
       <div class="why-us-grid">
         <div class="why-card fade-in" id="why-cert">
           <div class="why-icon">
-            <i class="fas fa-user-graduate"></i>
+            <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=400&q=80" alt="Certified Experts" class="why-img" />
           </div>
           <h3>Certified Experts</h3>
           <p>Our team of qualified physiotherapists:</p>
@@ -317,39 +290,76 @@
         </div>
         <div class="why-card fade-in" id="why-plan">
           <div class="why-icon">
-            <i class="fas fa-clipboard-list"></i>
+            <img src="https://images.unsplash.com/photo-1505751172876-0f3162608bd8?auto=format&fit=crop&w=400&q=80" alt="Personalized Treatment Plans" class="why-img" />
           </div>
           <h3>Personalized Treatment Plans</h3>
-          <p>Every patient receives a unique, tailored treatment plan developed after a thorough assessment of their condition, goals, and lifestyle.</p>
+          <p>Every patient receives a unique, tailored treatment plan developed after a thorough assessment of their
+            condition, goals, and lifestyle.</p>
         </div>
         <div class="why-card fade-in" id="why-evidence">
           <div class="why-icon">
-            <i class="fas fa-microscope"></i>
+            <img src="https://images.unsplash.com/photo-1532187863486-abf9db61b780?auto=format&fit=crop&w=400&q=80" alt="Evidence-Based Physiotherapy" class="why-img" />
           </div>
           <h3>Evidence-Based Physiotherapy</h3>
-          <p>Our treatments are grounded in the latest scientific research and clinical evidence, ensuring maximum effectiveness for every patient.</p>
+          <p>Our treatments are grounded in the latest scientific research and clinical evidence, ensuring maximum
+            effectiveness for every patient.</p>
         </div>
         <div class="why-card fade-in" id="why-equip">
           <div class="why-icon">
-            <i class="fas fa-laptop-medical"></i>
+            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=400&q=80" alt="Latest Techniques & Equipment" class="why-img" />
           </div>
           <h3>Latest Techniques & Equipment</h3>
-          <p>We invest in the latest therapeutic technology — from electrotherapy units to advanced rehabilitation tools — for optimal treatment outcomes.</p>
+          <p>We invest in the latest therapeutic technology — from electrotherapy units to advanced rehabilitation tools
+            — for optimal treatment outcomes.</p>
         </div>
         <div class="why-card fade-in" id="why-one">
           <div class="why-icon">
-            <i class="fas fa-user-check"></i>
+            <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=400&q=80" alt="One-to-One Patient Care" class="why-img" />
           </div>
           <h3>One-to-One Patient Care</h3>
-          <p>We provide dedicated one-on-one sessions ensuring complete attention, proper form correction, and the best recovery results for each patient.</p>
+          <p>We provide dedicated one-on-one sessions ensuring complete attention, proper form correction, and the best
+            recovery results for each patient.</p>
         </div>
         <div class="why-card fade-in" id="why-afford">
           <div class="why-icon">
-            <i class="fas fa-tags"></i>
+            <img src="https://images.unsplash.com/photo-1580519542036-ed47f3e42918?auto=format&fit=crop&w=400&q=80" alt="Affordable Treatment" class="why-img" />
           </div>
-            <h3>Affordable Treatment</h3>
-            <p>Quality healthcare should be accessible to everyone. Our treatments start from just <strong>₹400</strong>. No compromises on quality.</p>
+          <h3>Affordable Treatment</h3>
+          <p>Quality healthcare should be accessible to everyone. Our treatments start from just <strong>₹400</strong>.
+            No compromises on quality.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== OUR EXPERTS ===== -->
+  <section class="experts section" id="experts" style="background: var(--off-white); overflow: hidden;">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-tag"><i class="fas fa-stethoscope"></i> Our Team</div>
+        <h2 class="section-title">Meet Our <span class="accent">Experts</span></h2>
+        <p class="section-subtitle">Dedicated professionals committed to your recovery and well-being.</p>
+      </div>
+      
+      <div class="experts-interactive-wrapper fade-in">
+        <!-- LEFT: Carousel -->
+        <div class="experts-left">
+          <div class="carousel-container">
+            <button class="carousel-btn prev-expert" aria-label="Previous Expert"><i class="fas fa-chevron-left"></i></button>
+            <div class="carousel-track-wrapper">
+              <div class="carousel-track" id="expertTrack"><!-- JS populates --></div>
+            </div>
+            <button class="carousel-btn next-expert" aria-label="Next Expert"><i class="fas fa-chevron-right"></i></button>
           </div>
+          <div class="carousel-counter" id="expertCounter">01 / 05</div>
+        </div>
+
+        <!-- RIGHT: Info Panel -->
+        <div class="experts-right">
+          <div class="expert-details-container">
+            <div class="expert-info-panel" id="expertInfoPanel"><!-- JS populates --></div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -361,7 +371,8 @@
         <div class="appt-info">
           <div class="section-tag"><i class="fas fa-calendar-alt"></i> Get In Touch</div>
           <h2 class="section-title">Book Your <span class="accent">Appointment</span></h2>
-          <p>Take the first step towards recovery. Fill in the form and our team will confirm your appointment within 24 hours.</p>
+          <p>Take the first step towards recovery. Fill in the form and our team will confirm your appointment within 24
+            hours.</p>
           <div class="appt-contact-list">
             <div class="appt-contact-item">
               <div class="appt-contact-icon"><i class="fas fa-phone-alt"></i></div>
@@ -400,7 +411,8 @@
               </div>
             </div>
             <div class="form-group">
-              <label for="patientEmail">Email Address <span style="font-weight:400;opacity:0.6">(Optional)</span></label>
+              <label for="patientEmail">Email Address <span
+                  style="font-weight:400;opacity:0.6">(Optional)</span></label>
               <input type="email" id="patientEmail" name="patientEmail" placeholder="your@email.com" />
             </div>
             <div class="form-group">
@@ -432,7 +444,8 @@
             </div>
             <div class="form-group">
               <label for="patientLocation">Your Location / Address *</label>
-              <input type="text" id="patientLocation" name="patientLocation" placeholder="Your area, locality, or full address" required />
+              <input type="text" id="patientLocation" name="patientLocation"
+                placeholder="Your area, locality, or full address" required />
             </div>
             <div class="form-row">
               <div class="form-group">
@@ -456,9 +469,10 @@
             </div>
             <div class="form-group">
               <label for="message">Message / Symptoms</label>
-              <textarea id="message" name="message" rows="3" placeholder="Briefly describe your condition or any specific concerns..."></textarea>
+              <textarea id="message" name="message" rows="3"
+                placeholder="Briefly describe your condition or any specific concerns..."></textarea>
             </div>
-            
+
             <div class="form-group payment-section">
               <label>Payment Preference *</label>
               <div class="payment-options">
@@ -473,11 +487,13 @@
                   Pay Now (QR Code)
                 </label>
               </div>
-              
-              <div class="payment-details" id="paymentDetails" style="display: none; flex-direction: column; align-items: stretch;">
+
+              <div class="payment-details" id="paymentDetails"
+                style="display: none; flex-direction: column; align-items: stretch;">
                 <div style="display: flex; gap: 24px; align-items: center; flex-wrap: wrap;">
                   <div class="qr-box">
-                    <a href="upi://pay?pa=Q387168139@ybl&pn=Aaroh%20Physiotherapy&cu=INR" title="Click to pay via UPI app">
+                    <a href="upi://pay?pa=Q387168139@ybl&pn=Aaroh%20Physiotherapy&cu=INR"
+                      title="Click to pay via UPI app">
                       <img src="payment_qr.jpg" alt="UPI QR Code" class="qr-img">
                     </a>
                     <p>Scan or Click to Pay ₹400</p>
@@ -488,8 +504,9 @@
                     <p><strong>UPI ID:</strong> Q387168139@ybl</p>
                   </div>
                 </div>
-                
-                <div class="payment-verification" style="margin-top: 15px; border-top: 1px solid rgba(13,148,136,0.3); padding-top: 15px;">
+
+                <div class="payment-verification"
+                  style="margin-top: 15px; border-top: 1px solid rgba(13,148,136,0.3); padding-top: 15px;">
                   <label class="payment-radio" style="color: #065f46; font-weight: 600;">
                     <input type="checkbox" id="paymentConfirmCheck">
                     <span class="radio-custom" style="border-radius: 4px;"></span>
@@ -506,7 +523,8 @@
               <i class="fas fa-check-circle"></i>
               <strong>Request Sent!</strong> Please complete your request on WhatsApp.
               <br><br>
-              <button type="button" class="btn" id="downloadReceiptBtn" style="background: white; color: #10b981; border: 1px solid #10b981; padding: 8px 16px; width: 100%;">
+              <button type="button" class="btn" id="downloadReceiptBtn"
+                style="background: white; color: #10b981; border: 1px solid #10b981; padding: 8px 16px; width: 100%;">
                 <i class="fas fa-file-invoice"></i> Download Booking Receipt
               </button>
             </div>
@@ -527,40 +545,50 @@
       <div class="testimonials-slider-wrap fade-in">
         <div class="testimonials-track" id="testimonialsTrack">
           <div class="testimonial-card">
-            <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-            <p class="testi-quote">"I had severe back pain for over 2 years. After just 3 weeks of treatment at Aaroh, I can finally sleep through the night without pain. The therapists are incredibly skilled and caring."</p>
+            <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                class="fas fa-star"></i><i class="fas fa-star"></i></div>
+            <p class="testi-quote">"I had severe back pain for over 2 years. After just 3 weeks of treatment at Aaroh, I
+              can finally sleep through the night without pain. The therapists are incredibly skilled and caring."</p>
             <div class="testi-author">
               <div class="testi-avatar">RK</div>
               <div><strong>Rajesh Kumar</strong><span>Spondylosis Patient</span></div>
             </div>
           </div>
           <div class="testimonial-card">
-            <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-            <p class="testi-quote">"My mother had a stroke last year. The neurological rehabilitation team here is exceptional. She has regained most of her movement. We are so grateful to the Aaroh team!"</p>
+            <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                class="fas fa-star"></i><i class="fas fa-star"></i></div>
+            <p class="testi-quote">"My mother had a stroke last year. The neurological rehabilitation team here is
+              exceptional. She has regained most of her movement. We are so grateful to the Aaroh team!"</p>
             <div class="testi-author">
               <div class="testi-avatar">PS</div>
               <div><strong>Priya Srivastava</strong><span>Stroke Rehabilitation</span></div>
             </div>
           </div>
           <div class="testimonial-card">
-            <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-            <p class="testi-quote">"As a runner, a knee injury felt devastating. The sports physiotherapy program at Aaroh got me back on track in record time. Professional, dedicated, and truly the best in Lucknow."</p>
+            <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                class="fas fa-star"></i><i class="fas fa-star"></i></div>
+            <p class="testi-quote">"As a runner, a knee injury felt devastating. The sports physiotherapy program at
+              Aaroh got me back on track in record time. Professional, dedicated, and truly the best in Lucknow."</p>
             <div class="testi-author">
               <div class="testi-avatar">AV</div>
               <div><strong>Ankit Verma</strong><span>Sports Injury Recovery</span></div>
             </div>
           </div>
           <div class="testimonial-card">
-            <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
-            <p class="testi-quote">"The home visit service is a blessing. My elderly father cannot travel easily, and having expert physiotherapy at home has transformed his condition. Highly professional and punctual."</p>
+            <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+            <p class="testi-quote">"The home visit service is a blessing. My elderly father cannot travel easily, and
+              having expert physiotherapy at home has transformed his condition. Highly professional and punctual."</p>
             <div class="testi-author">
               <div class="testi-avatar">SM</div>
               <div><strong>Sunita Mishra</strong><span>Home Visit Patient</span></div>
             </div>
           </div>
           <div class="testimonial-card">
-            <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-            <p class="testi-quote">"Post my knee replacement surgery, I was worried about my recovery. The team at Aaroh gave me a structured plan and constant support. I'm walking without any assistance now!"</p>
+            <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                class="fas fa-star"></i><i class="fas fa-star"></i></div>
+            <p class="testi-quote">"Post my knee replacement surgery, I was worried about my recovery. The team at Aaroh
+              gave me a structured plan and constant support. I'm walking without any assistance now!"</p>
             <div class="testi-author">
               <div class="testi-avatar">DG</div>
               <div><strong>Dinesh Gupta</strong><span>Post-Surgery Rehab</span></div>
@@ -612,9 +640,10 @@
             <div>
               <h4>Connect With Us</h4>
               <div class="social-links">
-                <a href="https://wa.me/919026360072" target="_blank" class="social-btn whatsapp" id="whatsappBtn"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a href="https://wa.me/919026360072" target="_blank" class="social-btn whatsapp" id="whatsappBtn"><i
+                    class="fab fa-whatsapp"></i> WhatsApp</a>
                 <a href="#" class="social-btn facebook" id="facebookBtn"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="social-btn instagram" id="instagramBtn"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.instagram.com/aaroh_physio" target="_blank" class="social-btn instagram" id="instagramBtn"><i class="fab fa-instagram"></i></a>
               </div>
             </div>
           </div>
@@ -622,17 +651,13 @@
         <div class="map-wrap fade-in">
           <div class="map-container">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3558.5!2d80.9340!3d26.8830!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjbCsDUyJzU4LjgiTiA4MMKwNTYnMDIuNCJF!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
-              width="100%"
-              height="100%"
-              style="border:0;"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
+              src="https://maps.google.com/maps?q=3%2F117%2C+near+Patanjali+Store%2C+Sector+3%2C+Vikas+Nagar%2C+Lucknow%2C+Uttar+Pradesh+226022&t=&z=15&ie=UTF8&iwloc=&output=embed"
+              width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
               title="Aaroh Physiotherapy Location">
             </iframe>
           </div>
-          <a href="https://maps.google.com/?q=Vikas+Nagar+Sector+3+Lucknow" target="_blank" class="directions-btn" id="directionsBtn">
+          <a href="https://maps.google.com/?q=Vikas+Nagar+Sector+3+Lucknow" target="_blank" class="directions-btn"
+            id="directionsBtn">
             <i class="fas fa-directions"></i> Get Directions
           </a>
         </div>
@@ -653,11 +678,13 @@
                 <span class="logo-sub">Physiotherapy & Rehabilitation</span>
               </div>
             </div>
-            <p>Dedicated to restoring your movement, reducing pain, and rebuilding your quality of life through expert, compassionate physiotherapy care.</p>
+            <p>Dedicated to restoring your movement, reducing pain, and rebuilding your quality of life through expert,
+              compassionate physiotherapy care.</p>
             <div class="footer-social">
-              <a href="https://wa.me/919026360072" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+              <a href="https://wa.me/919026360072" target="_blank" aria-label="WhatsApp"><i
+                  class="fab fa-whatsapp"></i></a>
               <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-              <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="https://www.instagram.com/aaroh_physio" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
               <a href="tel:+919026360072" aria-label="Call"><i class="fas fa-phone"></i></a>
             </div>
           </div>
@@ -712,7 +739,8 @@
   </footer>
 
   <!-- ===== WHATSAPP FLOATING BUTTON ===== -->
-  <a href="https://wa.me/919026360072" target="_blank" class="whatsapp-float" id="whatsappFloat" aria-label="WhatsApp Us">
+  <a href="https://wa.me/919026360072" target="_blank" class="whatsapp-float" id="whatsappFloat"
+    aria-label="WhatsApp Us">
     <i class="fab fa-whatsapp"></i>
     <span class="wa-label">Chat with Us</span>
   </a>
@@ -722,6 +750,9 @@
     <i class="fas fa-arrow-up"></i>
   </button>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="script.js"></script>
 </body>
+
 </html>

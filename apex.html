@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="sport">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>try{document.documentElement.dataset.theme='sport';}catch(e){}</script>
+  <title>APEX Physiotherapy — Performance. Recovery. Movement.</title>
+  <meta name="description" content="APEX Physiotherapy — expert one-to-one physiotherapy, return to sport, and performance training. Individual. Structured. Results-driven.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Space+Grotesk:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css?v=8">
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#hero" class="nav-logo"><img src="assets/images/apex-logo.webp" alt="APEX Physiotherapy" style="height:32px;width:auto;display:block"></a>
+  <div class="nav-links">
+    <a href="#character-select">Team</a>
+    <a href="#specialties">Services</a>
+    <a href="#journey">Process</a>
+    <a href="#gallery">Results</a>
+  </div>
+  <a href="#cta" class="nav-cta">Book Now</a>
+</nav>
+
+<!-- Theme switcher (fixed bottom-right) -->
+<div id="global-theme-sw">
+  <button class="theme-btn active" data-theme="titan">TITAN</button>
+  <button class="theme-btn" data-theme="noir">NOIR</button>
+  <button class="theme-btn" data-theme="crystal">CRYSTAL</button>
+  <button class="theme-btn" data-theme="blanc">BLANC</button>
+  <button class="theme-btn" data-theme="duo">DUO</button>
+  <button class="theme-btn" data-theme="verde">VERDE</button>
+  <button class="theme-btn" data-theme="azur">AZUR</button>
+  <button class="theme-btn" data-theme="amber">AMBER</button>
+</div>
+
+<!-- S1: HERO -->
+<section id="hero">
+  <div class="hero-split">
+    <div class="hero-left">
+      <span class="hero-eyebrow">PHYSIOTHERAPY · LONDON</span>
+      <h1 class="hero-title"><img src="assets/images/apex-logo-outline.webp" alt="APEX" style="width:min(580px,85vw);height:auto;display:block"></h1>
+      <p class="hero-sub" style="margin-top:.4rem">Performance. Recovery. Movement.</p>
+      <p class="hero-tagline">Physiotherapy · Performance Training · Rehabilitation</p>
+      <div class="hero-btns">
+        <a href="#cta" class="hero-btn-primary">Book Now</a>
+        <a href="#character-select" class="hero-btn-ghost">Our Team</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-accent-line"></div>
+      <video id="spine-hero-img" autoplay muted loop playsinline poster="assets/images/hero-figure.webp"
+             style="object-fit:contain;object-position:center;transform:translate(0px,7px) scale(1.19);transform-origin:center center;mix-blend-mode:screen"
+             onloadeddata="this.playbackRate=2.0" onplay="this.playbackRate=2.0">
+        <source src="assets/videos/hero-figure-loop.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="hero-scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- TEAM INTRO VIDEO -->
+<section id="team-intro">
+  <div class="ti-inner">
+    <video class="ti-video" autoplay muted loop playsinline poster="assets/images/team-clinic-static.webp">
+      <source src="assets/team-clinic.mp4" type="video/mp4">
+    </video>
+    <div class="ti-scrim"></div>
+    <div class="ti-text">
+      <h2 class="ti-heading">APEX</h2>
+      <span class="ti-eyebrow">Performance. Recovery. Movement.</span>
+    </div>
+  </div>
+</section>
+
+<!-- S2: CHARACTER SELECT -->
+<section id="character-select" data-cv="v4">
+
+  <div id="cs-stage">
+    <img id="cs-stage-bg" src="assets/images/clinic-bg.webp" alt=""
+      onerror="this.style.display='none'">
+    <div class="vsw" id="cs-vsw">
+      <button class="vsw-btn" data-cv="v1">V1</button>
+      <button class="vsw-btn" data-cv="v2">V2</button>
+      <button class="vsw-btn" data-cv="v3">V3</button>
+      <button class="vsw-btn active" data-cv="v4">V4</button>
+      <button class="vsw-btn" data-cv="v5" title="Spotlight + Aura">V5</button>
+      <button class="vsw-btn" data-cv="v6" title="Spotlight Stage">V6</button>
+      <button class="vsw-btn" data-cv="v7" title="Holographic">V7</button>
+      <button class="vsw-btn" data-cv="v8" title="Signature Aura">V8</button>
+      <button class="vsw-btn" data-cv="v9" title="Parallax Depth">V9</button>
+      <button class="vsw-btn" data-cv="v10" title="Cinematic Camera">V10</button>
+    </div>
+    <div id="zone-ring"></div>
+    <div id="ground-line"></div>
+    <div id="cs-heading">
+      <span class="cs-eyebrow">Our Team</span>
+      <h2 class="cs-headline">Your Therapist</h2>
+      <span class="cs-hint">Choose a therapist — or use ← →</span>
+    </div>
+    <!-- chars + hotspots injected by JS -->
+    <div id="cs-info-panel">
+      <div id="cs-doc-specialty"></div>
+      <div id="cs-doc-name"></div>
+      <button id="cs-mobile-hint" type="button"><span>Full Profile</span> &rarr;</button>
+      <div id="cs-doc-bio"></div>
+      <div id="cs-doc-stats">
+        <div class="cs-stat-row"><span class="cs-stat-label">Mobilisation</span><div class="cs-stat-track"><div class="cs-stat-fill" id="cs-stat-pre"></div></div><span class="cs-stat-val" id="cs-stat-pre-val"></span></div>
+        <div class="cs-stat-row"><span class="cs-stat-label">Training</span><div class="cs-stat-track"><div class="cs-stat-fill" id="cs-stat-tec"></div></div><span class="cs-stat-val" id="cs-stat-tec-val"></span></div>
+        <div class="cs-stat-row"><span class="cs-stat-label">Experience</span><div class="cs-stat-track"><div class="cs-stat-fill" id="cs-stat-exp"></div></div><span class="cs-stat-val" id="cs-stat-exp-val"></span></div>
+      </div>
+      <button id="cs-book-btn">Book Session →</button>
+    </div>
+    <div id="doctor-hud">
+      <div class="hud-title">Team</div>
+    </div>
+    <div id="cs-bottombar">
+      <div id="cs-counter">
+        <span id="cs-counter-num">01</span>
+        <span id="cs-counter-sep">/</span>
+        <span id="cs-counter-total">05</span>
+      </div>
+      <div style="display:flex;gap:10px">
+        <button class="cs-arrow-btn" id="cs-btn-prev">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+        </button>
+        <button class="cs-arrow-btn" id="cs-btn-next">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Story/Profile Panel (outside section, body-level siblings) -->
+<div id="cs-story-overlay" onclick="closeDoctorStory()"></div>
+<div id="cs-story-panel">
+  <button id="cs-story-close" onclick="closeDoctorStory()">✕</button>
+  <div id="cs-story-media">
+    <img id="cs-story-img" alt="" loading="lazy">
+    <div id="cs-story-media-grad"></div>
+    <div id="cs-story-media-cap">
+      <div id="cs-story-specialty"></div>
+      <div id="cs-story-name"></div>
+    </div>
+  </div>
+  <div id="cs-story-body">
+    <div id="cs-story-meta">
+      <span id="cs-story-years"></span>
+      <span class="cs-meta-dot"></span>
+      <span id="cs-story-edu"></span>
+    </div>
+    <p id="cs-story-quote"></p>
+    <p id="cs-story-bio"></p>
+    <div id="cs-story-cases"></div>
+    <div class="cs-story-label">Signature Treatments</div>
+    <div id="cs-story-treatments"></div>
+    <div class="cs-story-label">Expertise</div>
+    <div id="cs-story-stats">
+      <div class="cs-stat-row"><span class="cs-stat-label">Mobilisation</span><div class="cs-stat-track"><div class="cs-stat-fill" id="cs-st-pre"></div></div><span class="cs-stat-val" id="cs-st-pre-val"></span></div>
+      <div class="cs-stat-row"><span class="cs-stat-label">Training</span><div class="cs-stat-track"><div class="cs-stat-fill" id="cs-st-tec"></div></div><span class="cs-stat-val" id="cs-st-tec-val"></span></div>
+      <div class="cs-stat-row"><span class="cs-stat-label">Experience</span><div class="cs-stat-track"><div class="cs-stat-fill" id="cs-st-exp"></div></div><span class="cs-stat-val" id="cs-st-exp-val"></span></div>
+    </div>
+    <button id="cs-story-book">Book Session →</button>
+  </div>
+</div>
+
+<!-- Gallery result modal -->
+<div id="gal-modal">
+  <div class="gal-modal-overlay" onclick="closeGalleryModal()"></div>
+  <div class="gal-modal-panel">
+    <button class="gal-modal-close" onclick="closeGalleryModal()">✕</button>
+    <div class="gal-modal-img"><img id="gal-modal-photo" alt=""></div>
+    <div class="gal-modal-body">
+      <div class="gal-modal-tag">✦ Success</div>
+      <h3 id="gal-modal-title"></h3>
+      <div id="gal-modal-detail"></div>
+      <p id="gal-modal-story"></p>
+      <a href="#cta" class="gal-modal-cta" onclick="closeGalleryModal()">Book Now →</a>
+    </div>
+  </div>
+</div>
+
+<!-- S3: LEISTUNGEN -->
+<section id="specialties" data-v="v2">
+  <div class="section-header reveal">
+    <div class="divider">
+      <div class="divider-line"></div>
+      <span class="section-label" style="margin:0">Services</span>
+      <div class="divider-line"></div>
+    </div>
+    <h2 class="section-title">Active. Individual. Sustainable.</h2>
+  </div>
+  <div class="specialties-grid" id="specialtiesGrid"></div>
+</section>
+
+<!-- S4: METHODEN -->
+<section id="technology" data-v="v3">
+  <div class="section-header reveal">
+    <div class="divider">
+      <div class="divider-line"></div>
+      <span class="section-label" style="margin:0">Methods</span>
+      <div class="divider-line"></div>
+    </div>
+    <h2 class="section-title">Precision Meets Movement</h2>
+  </div>
+  <div class="tech-grid">
+    <div class="tech-card reveal" data-num="01">
+      <div class="tech-photo"><img src="assets/images/tech-manual.webp" alt="Manual Therapy" loading="lazy" onerror="this.parentNode.style.background='var(--bg3)'"></div>
+      <div class="tech-icon">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M10 32 C10 20 16 14 20 12 C24 14 30 20 30 32"/>
+          <circle cx="20" cy="8" r="4"/>
+          <line x1="20" y1="12" x2="20" y2="20"/>
+        </svg>
+      </div>
+      <h3 class="tech-title">Manual Therapy</h3>
+      <p class="tech-desc">Targeted mobilisation of joints and soft tissues through skilled hands-on treatment. Precise, effective, and felt from the first session.</p>
+    </div>
+    <div class="tech-card reveal" data-num="02">
+      <div class="tech-photo"><img src="assets/images/tech-training.webp" alt="Functional Training" loading="lazy" onerror="this.parentNode.style.background='var(--bg3)'"></div>
+      <div class="tech-icon">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="20" cy="8" r="4"/>
+          <path d="M20 12 L18 24 L14 34"/><path d="M20 12 L22 24 L26 34"/><path d="M16 19 L24 19"/>
+        </svg>
+      </div>
+      <h3 class="tech-title">Functional Training</h3>
+      <p class="tech-desc">Sport-specific strength work on the squat rack, cable machine, and kettlebell. Tailored to your goals — not the next patient in line.</p>
+    </div>
+    <div class="tech-card reveal" data-num="03">
+      <div class="tech-photo"><img src="assets/images/tech-shockwave.webp" alt="Shockwave Therapy" loading="lazy" onerror="this.parentNode.style.background='var(--bg3)'"></div>
+      <div class="tech-icon">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M4 20 Q10 8 16 20 Q22 32 28 20 Q34 8 38 20"/>
+        </svg>
+      </div>
+      <h3 class="tech-title">Shockwave Therapy</h3>
+      <p class="tech-desc">Focused sound waves for chronic tendon pain and tendinopathies. Non-invasive, clinically proven for plantar fasciitis and patellar tendon.</p>
+    </div>
+  </div>
+</section>
+
+<!-- S5: JOURNEY / DEIN WEG -->
+<section id="journey" data-v="v8">
+  <div class="section-header reveal">
+    <div class="divider">
+      <div class="divider-line"></div>
+      <span class="section-label" style="margin:0">Your Journey</span>
+      <div class="divider-line"></div>
+    </div>
+    <h2 class="section-title">From First Pain<br>to Full Strength</h2>
+  </div>
+  <div class="journey-steps">
+    <div class="step reveal">
+      <div class="step-num">01</div>
+      <h3 class="step-title">First Contact</h3>
+      <p class="step-desc">Call us, message us, or book directly online. Bring your referral — or come without one as a private patient. Insured or self-pay — everyone is welcome.</p>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">02</div>
+      <h3 class="step-title">Assessment &amp; Goals</h3>
+      <p class="step-desc">We listen first. What's causing the pain? What do you want to do again? Together we review your history and define your goal.</p>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">03</div>
+      <h3 class="step-title">Testing</h3>
+      <p class="step-desc">We test mobility, strength, and load tolerance — functionally, not just on paper. Not the calendar decides. Your readiness decides.</p>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">04</div>
+      <h3 class="step-title">Individual Therapy</h3>
+      <p class="step-desc">60 minutes, just for you — with your therapist. Manual therapy, mobilisation, training, guidance. Every session adapts to where you are today.</p>
+    </div>
+  </div>
+</section>
+
+<!-- S5b: STATS -->
+<section id="stats" data-v="v6">
+  <div class="stats-grid">
+    <div class="stat-item reveal">
+      <div class="stat-row">
+        <div class="stat-num" data-target="500">0</div>
+        <div class="stat-unit">+</div>
+      </div>
+      <div class="stat-label">Patients</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-row">
+        <div class="stat-num" data-target="3">0</div>
+        <div class="stat-unit"></div>
+      </div>
+      <div class="stat-label">Therapists</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-row">
+        <div class="stat-num" data-target="60">0</div>
+        <div class="stat-unit">Min</div>
+      </div>
+      <div class="stat-label">Session Length</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-row">
+        <div class="stat-num" data-target="100">0</div>
+        <div class="stat-unit">%</div>
+      </div>
+      <div class="stat-label">Individual</div>
+    </div>
+  </div>
+</section>
+
+<!-- S6: GALLERY -->
+<section id="gallery" data-v="v2">
+  <div class="section-header reveal">
+    <div class="divider">
+      <div class="divider-line"></div>
+      <span class="section-label" style="margin:0">Gallery</span>
+      <div class="divider-line"></div>
+    </div>
+    <h2 class="section-title">Back Stronger</h2>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-card reveal has-photo">
+      <img class="gallery-photo" src="assets/images/gallery-knee.webp" alt="Return to Sport" loading="lazy" onerror="this.style.display='none'">
+      <div class="gallery-treatment">Return to Sport</div>
+      <div class="gallery-detail">ACL · Progressive Return · Ryan</div>
+      <div class="gallery-tag-new">✦ Success</div>
+    </div>
+    <div class="gallery-card reveal has-photo">
+      <img class="gallery-photo" src="assets/images/gallery-mobility.webp" alt="Schulterrehabilitation" loading="lazy" onerror="this.style.display='none'">
+      <div class="gallery-treatment">Shoulder Rehabilitation</div>
+      <div class="gallery-detail">Impingement · Manual Therapy · Sophie</div>
+      <div class="gallery-tag-new">✦ Success</div>
+    </div>
+    <div class="gallery-card reveal has-photo">
+      <img class="gallery-photo" src="assets/images/gallery-rehab.webp" alt="Hip Mobilisation" loading="lazy" onerror="this.style.display='none'">
+      <div class="gallery-treatment">Hip Mobilisation</div>
+      <div class="gallery-detail">Hip OA · Active Therapy · Alex</div>
+      <div class="gallery-tag-new">✦ Success</div>
+    </div>
+    <div class="gallery-card reveal has-photo">
+      <img class="gallery-photo" src="assets/images/gallery-neckback.webp" alt="Back and Neck" loading="lazy" onerror="this.style.display='none'">
+      <div class="gallery-treatment">Back &amp; Neck</div>
+      <div class="gallery-detail">Posture Correction · Active Therapy · Sophie</div>
+      <div class="gallery-tag-new">✦ Success</div>
+    </div>
+    <div class="gallery-card reveal has-photo">
+      <img class="gallery-photo" src="assets/images/gallery-plyo.webp" alt="Plyometrie Training" loading="lazy" onerror="this.style.display='none'">
+      <div class="gallery-treatment">Strength &amp; Plyometrics</div>
+      <div class="gallery-detail">Jump Power · Sports Rehab · Alex</div>
+      <div class="gallery-tag-new">✦ Success</div>
+    </div>
+    <div class="gallery-card reveal has-photo">
+      <img class="gallery-photo" src="assets/images/gallery-1.webp" alt="Kettlebell Training" loading="lazy" onerror="this.style.display='none'">
+      <div class="gallery-treatment">Functional Strength</div>
+      <div class="gallery-detail">Kettlebell Training · The Full Team</div>
+      <div class="gallery-tag-new">✦ Success</div>
+    </div>
+  </div>
+</section>
+
+<!-- S7: TESTIMONIALS -->
+<section id="testimonials" data-v="v3">
+  <div class="section-header reveal">
+    <div class="divider">
+      <div class="divider-line"></div>
+      <span class="section-label" style="margin:0">Reviews</span>
+      <div class="divider-line"></div>
+    </div>
+    <h2 class="section-title">What Our Patients Say</h2>
+  </div>
+  <div class="test-grid">
+    <div class="test-card reveal">
+      <img class="test-avatar" src="assets/images/testimonial-james.webp" alt="Max S." loading="lazy">
+      <div class="test-stars">★★★★★</div>
+      <p class="test-quote">"After my ACL surgery I thought football was over. The return-to-sport programme at APEX brought me back stronger than before in just 8 months."</p>
+      <div class="test-meta">
+        <span class="test-name">Max S.</span>
+        <span class="test-treatment">ACL Rehabilitation</span>
+      </div>
+    </div>
+    <div class="test-card reveal">
+      <img class="test-avatar" src="assets/images/testimonial-female-1.webp" alt="Laura M." loading="lazy">
+      <div class="test-stars">★★★★★</div>
+      <p class="test-quote">"Finally a clinic that actually listens. 60 minutes with one person — no production line. My shoulder problems of two years were gone after six sessions."</p>
+      <div class="test-meta">
+        <span class="test-name">Laura M.</span>
+        <span class="test-treatment">Shoulder Therapy</span>
+      </div>
+    </div>
+    <div class="test-card reveal">
+      <img class="test-avatar" src="assets/images/testimonial-male.webp" alt="Thomas K." loading="lazy">
+      <div class="test-stars">★★★★★</div>
+      <p class="test-quote">"The team at APEX is exceptional. Professional, motivating — and genuinely focused on my goals. They didn't count weeks, they measured my readiness."</p>
+      <div class="test-meta">
+        <span class="test-name">Thomas K.</span>
+        <span class="test-treatment">Back &amp; Hip</span>
+      </div>
+    </div>
+  </div>
+  <div class="test-nav" id="testNav">
+    <button class="test-arrow" id="test-prev">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <div class="test-dots" id="test-dots"></div>
+    <button class="test-arrow" id="test-next">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
+  </div>
+</section>
+
+<!-- S8: CTA BOOKING -->
+<section id="cta" data-v="v3">
+  <div class="cta-bg"></div>
+  <p class="cta-label reveal">Ready?</p>
+  <h2 class="cta-title reveal">Not the calendar. Your readiness decides.</h2>
+  <p class="cta-sub reveal">Insured or self-pay — we treat every patient individually.</p>
+  <div class="cta-book reveal" id="ctaBook">
+    <div class="bk-field">
+      <label class="bk-label">1 · Service</label>
+      <div class="bk-dd" id="bk-treatment">
+        <button type="button" class="bk-dd-btn" id="bk-dd-btn" aria-haspopup="listbox" aria-expanded="false">
+          <span class="bk-dd-val" data-placeholder="true">Select service</span>
+          <svg class="bk-dd-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <ul class="bk-dd-list" id="bk-dd-list" role="listbox">
+          <li class="bk-dd-opt" role="option">Physiotherapy (Insured)</li>
+          <li class="bk-dd-opt" role="option">Physiotherapy (Self-Pay)</li>
+          <li class="bk-dd-opt" role="option">Personal Training</li>
+          <li class="bk-dd-opt" role="option">Sports Massage</li>
+          <li class="bk-dd-opt" role="option">Return to Sport</li>
+          <li class="bk-dd-opt" role="option">Shockwave Therapy</li>
+          <li class="bk-dd-opt" role="option">Free Consultation</li>
+        </ul>
+      </div>
+    </div>
+    <div class="bk-grid">
+      <div class="bk-cal">
+        <label class="bk-label">2 · Date</label>
+        <div class="cal-head">
+          <button type="button" id="cal-prev" aria-label="Previous month">‹</button>
+          <span id="cal-month"></span>
+          <button type="button" id="cal-next" aria-label="Next month">›</button>
+        </div>
+        <div class="cal-weekdays"><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span><span>Su</span></div>
+        <div class="cal-grid" id="cal-grid"></div>
+      </div>
+      <div class="bk-times">
+        <label class="bk-label">3 · Time</label>
+        <div class="slot-grid" id="slot-grid"><span class="slot-hint">Select a date</span></div>
+        <div class="bk-summary" id="bk-summary"></div>
+      </div>
+    </div>
+    <div class="bk-actions">
+      <a class="bk-wa" id="bk-wa" href="https://wa.me/4400000000000?text=Hello%20APEX%2C%20I%20would%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.043zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+        WhatsApp
+      </a>
+      <button type="button" class="bk-confirm" id="bk-confirm">Confirm Booking →</button>
+    </div>
+    <p class="cta-note">No commitment · Free consultation · Response within 24h</p>
+  </div>
+  <div class="cta-success" id="ctaSuccess" style="display:none">✓ Your request has been received — we will get back to you within 24 hours.</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <a href="#hero" class="footer-logo-link">
+      <img src="assets/images/apex-logo.webp" alt="APEX" style="height:26px;width:auto;display:block">
+    </a>
+    <nav class="footer-links">
+      <a href="#hero" class="footer-link">Start</a>
+      <a href="#character-select" class="footer-link">Team</a>
+      <a href="#specialties" class="footer-link">Services</a>
+      <a href="#journey" class="footer-link">Process</a>
+      <a href="#cta" class="footer-link">Book</a>
+    </nav>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/apex.physiotherapy" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="2" y="2" width="20" height="20" rx="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+        </svg>
+      </a>
+      <span class="footer-social-label">@apex.physiotherapy</span>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">12 Performance Way · London, EC1A 1BB</span>
+    <span class="footer-copy">+44 20 0000 0000 · info@apex-physiotherapy.com</span>
+    <span class="footer-copy footer-tagline">Stay Active. Stay Strong.</span>
+  </div>
+</footer>
+
+<!-- WhatsApp Float -->
+<a id="wa-float" href="https://wa.me/4400000000000?text=Hello%20APEX%2C%20I%20would%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" width="30" height="30"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.043zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+</a>
+
+<!-- LEISTUNGS-DETAILFENSTER -->
+<div id="tx-overlay" onclick="closeTx()"></div>
+<aside id="tx-panel" aria-label="Service Details">
+  <button id="tx-close" onclick="closeTx()" aria-label="Close">✕</button>
+  <div id="tx-media">
+    <img id="tx-img" alt="" loading="lazy">
+    <div id="tx-media-grad"></div>
+    <div id="tx-media-cap">
+      <div id="tx-tag"></div>
+      <div id="tx-name"></div>
+    </div>
+  </div>
+  <div id="tx-body">
+    <p id="tx-desc"></p>
+    <div class="tx-label">What's Included</div>
+    <ul id="tx-benefits"></ul>
+    <div id="tx-meta"></div>
+    <a id="tx-book" href="#cta" onclick="closeTx()">Book Now →</a>
+  </div>
+</aside>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="assets/app.js"></script>
+
+<!-- HERO FRAME EDITOR — nur mit ?edit in der URL sichtbar (Dev-Tool) -->
+<script>
+(function(){
+  if (!/[?&]edit/.test(location.search)) return;
+  var v = document.getElementById('spine-hero-img');
+  if (!v) return;
+  var st = { scale: 1, x: 0, y: 0, fit: (v.style.objectFit || 'contain') };
+  function apply(){
+    v.style.objectFit = st.fit;
+    v.style.transform = 'translate('+st.x+'px,'+st.y+'px) scale('+st.scale+')';
+    v.style.transformOrigin = 'center center';
+    document.getElementById('fe-scaleV').textContent = st.scale.toFixed(2);
+    document.getElementById('fe-xV').textContent = st.x;
+    document.getElementById('fe-yV').textContent = st.y;
+  }
+  function row(label,key,min,max,step,val){
+    return '<label style="display:flex;flex-direction:column;gap:3px">'
+     + '<span style="display:flex;justify-content:space-between"><b>'+label+'</b><span id="fe-'+key+'V">'+val+'</span></span>'
+     + '<input type="range" id="fe-'+key+'" min="'+min+'" max="'+max+'" step="'+step+'" value="'+val+'" style="width:100%">'
+     + '</label>';
+  }
+  var panel = document.createElement('div');
+  panel.style.cssText = 'position:fixed;top:90px;right:20px;z-index:99999;width:240px;background:#0d0d0d;border:1px solid #2a7a3a;border-radius:10px;font:12px sans-serif;color:#e8f0e8;box-shadow:0 10px 40px #000a;user-select:none';
+  panel.innerHTML =
+     '<div id="fe-head" style="cursor:move;padding:8px 10px;background:#143a1e;border-radius:10px 10px 0 0;font-weight:600;display:flex;justify-content:space-between">HERO EDITOR <span id="fe-close" style="cursor:pointer">✕</span></div>'
+   + '<div style="padding:10px;display:flex;flex-direction:column;gap:10px">'
+   +   row('Zoom / Größe','scale',0.3,3,0.01,1)
+   +   row('X (← →)','x',-900,900,1,0)
+   +   row('Y (↑ ↓)','y',-900,900,1,0)
+   +   '<div style="display:flex;gap:6px"><button id="fe-fit" style="flex:1;padding:6px;background:#1a1a1a;color:#9be3a8;border:1px solid #2a7a3a;border-radius:6px;cursor:pointer">fit: contain</button><button id="fe-reset" style="flex:1;padding:6px;background:#1a1a1a;color:#ddd;border:1px solid #444;border-radius:6px;cursor:pointer">Reset</button></div>'
+   +   '<button id="fe-copy" style="padding:8px;background:#2a7a3a;color:#fff;border:0;border-radius:6px;cursor:pointer;font-weight:600">COPY CSS</button>'
+   +   '<div id="fe-out" style="font-size:10px;color:#8fd6a0;word-break:break-all;line-height:1.5"></div>'
+   + '</div>';
+  document.body.appendChild(panel);
+  document.getElementById('fe-fit').textContent = 'fit: ' + st.fit;
+  ['scale','x','y'].forEach(function(k){
+    document.getElementById('fe-'+k).addEventListener('input', function(e){ st[k] = parseFloat(e.target.value); apply(); });
+  });
+  document.getElementById('fe-fit').addEventListener('click', function(){ st.fit = st.fit==='contain'?'cover':'contain'; this.textContent='fit: '+st.fit; apply(); });
+  document.getElementById('fe-reset').addEventListener('click', function(){ st.scale=1; st.x=0; st.y=0; ['scale','x','y'].forEach(function(k){document.getElementById('fe-'+k).value=st[k];}); apply(); });
+  document.getElementById('fe-close').addEventListener('click', function(){ panel.remove(); });
+  document.getElementById('fe-copy').addEventListener('click', function(){
+    var css = 'object-fit:'+st.fit+';object-position:center;transform:translate('+st.x+'px,'+st.y+'px) scale('+st.scale+');transform-origin:center center';
+    document.getElementById('fe-out').textContent = css;
+    if (navigator.clipboard) navigator.clipboard.writeText(css);
+  });
+  var head=document.getElementById('fe-head'), dragging=false, ox=0, oy=0;
+  head.addEventListener('pointerdown', function(e){ dragging=true; ox=e.clientX-panel.offsetLeft; oy=e.clientY-panel.offsetTop; head.setPointerCapture(e.pointerId); });
+  head.addEventListener('pointermove', function(e){ if(!dragging)return; panel.style.left=(e.clientX-ox)+'px'; panel.style.top=(e.clientY-oy)+'px'; panel.style.right='auto'; });
+  head.addEventListener('pointerup', function(){ dragging=false; });
+  apply();
+})();
+</script>
+</body>
+</html>

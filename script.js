@@ -39,28 +39,46 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ────────────────────────────────────────────────
-  // 2. FADE-IN ANIMATIONS (Intersection Observer)
+  // 2. FADE-IN ANIMATIONS (GSAP ScrollTrigger)
   // ────────────────────────────────────────────────
-  const fadeEls = document.querySelectorAll('.fade-in');
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        // Stagger delay based on sibling index
-        const siblings = entry.target.parentElement.querySelectorAll('.fade-in');
-        let delay = 0;
-        siblings.forEach((el, idx) => {
-          if (el === entry.target) delay = idx * 100;
-        });
-        setTimeout(() => {
-          entry.target.classList.add('visible');
-        }, delay);
-        observer.unobserve(entry.target);
+  if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+    gsap.registerPlugin(ScrollTrigger);
+    
+    // Group elements by their parent container to stagger them nicely
+    const containers = document.querySelectorAll('.container, .hero');
+    
+    containers.forEach(container => {
+      const elements = container.querySelectorAll('.fade-in');
+      if (elements.length > 0) {
+        gsap.fromTo(elements, 
+          { y: 60, autoAlpha: 0 },
+          { 
+            y: 0, 
+            autoAlpha: 1, 
+            duration: 1, 
+            stagger: 0.15,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: container,
+              start: 'top 85%',
+              once: true
+            }
+          }
+        );
       }
     });
-  }, { threshold: 0.12 });
 
-  fadeEls.forEach(el => observer.observe(el));
+    // Animate section headers for a premium feel
+    gsap.utils.toArray('.section-header').forEach(header => {
+      gsap.fromTo(header.children, 
+        { y: 30, autoAlpha: 0 },
+        {
+          y: 0, autoAlpha: 1, duration: 1, stagger: 0.15, ease: 'power3.out',
+          scrollTrigger: { trigger: header, start: 'top 90%', once: true }
+        }
+      );
+    });
+  }
 
   // ────────────────────────────────────────────────
   // 3. ANIMATED STAT COUNTERS
@@ -214,7 +232,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Toggle Payment Details
     const paymentRadios = document.querySelectorAll('input[name="paymentMethod"]');
     const paymentDetails = document.getElementById('paymentDetails');
-    let lastSubmittedData = null;
     
     paymentRadios.forEach(radio => {
       radio.addEventListener('change', (e) => {
@@ -234,17 +251,6 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      // Check payment confirmation
-      const paymentMethodRadio = document.querySelector('input[name="paymentMethod"]:checked');
-      if (paymentMethodRadio && paymentMethodRadio.value === 'Pay Now') {
-        const confirmCheck = document.getElementById('paymentConfirmCheck');
-        if (!confirmCheck.checked) {
-          alert('Please complete the payment and check the confirmation box to book your appointment.');
-          confirmCheck.focus();
-          return;
-        }
-      }
-
       // Gather form data
       const name = document.getElementById('patientName').value.trim();
       const phone = document.getElementById('patientPhone').value.trim();
@@ -256,8 +262,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const time = document.getElementById('prefTime').value;
       const msg = document.getElementById('message').value.trim();
       const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
-      
-      lastSubmittedData = { name, phone, email, service, doctor, location, date, time, paymentMethod, msg };
 
       // Format the WhatsApp message
       let waMessage = `🏥 *New Appointment Request*\n`;
@@ -288,81 +292,15 @@ document.addEventListener('DOMContentLoaded', () => {
         submitBtn.style.background = 'linear-gradient(135deg, #10b981, #34d399)';
         formSuccess.classList.add('show');
         form.reset();
-        paymentDetails.style.display = 'none';
 
         setTimeout(() => {
           submitBtn.disabled = false;
           submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Appointment Request';
           submitBtn.style.background = '';
-        }, 3000);
+          formSuccess.classList.remove('show');
+        }, 5000);
       }, 800);
     });
-
-    const downloadReceiptBtn = document.getElementById('downloadReceiptBtn');
-    if (downloadReceiptBtn) {
-      downloadReceiptBtn.addEventListener('click', () => {
-        if (!lastSubmittedData) return;
-        
-        const receiptWindow = window.open('', '_blank');
-        const d = lastSubmittedData;
-        const receiptDate = new Date().toLocaleString();
-        
-        const html = `
-          <!DOCTYPE html>
-          <html>
-          <head>
-            <title>Booking Receipt - Aaroh Physiotherapy</title>
-            <style>
-              body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 40px; color: #333; }
-              .receipt-container { max-width: 600px; margin: 0 auto; border: 1px solid #ddd; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-              .header { text-align: center; border-bottom: 2px solid #0d9488; padding-bottom: 20px; margin-bottom: 20px; }
-              .header h1 { color: #0d9488; margin: 0 0 10px 0; }
-              .header p { margin: 0; color: #666; }
-              .details-table { width: 100%; border-collapse: collapse; margin-bottom: 30px; }
-              .details-table th, .details-table td { padding: 12px; border-bottom: 1px solid #eee; text-align: left; }
-              .details-table th { width: 40%; color: #555; font-weight: 600; }
-              .amount-row { background: #f0fdf4; font-weight: bold; color: #065f46; }
-              .footer { text-align: center; font-size: 0.9em; color: #777; margin-top: 30px; border-top: 1px solid #eee; padding-top: 20px; }
-              .print-btn { display: block; width: 100%; padding: 15px; background: #0d9488; color: white; border: none; font-size: 16px; cursor: pointer; border-radius: 5px; margin-top: 20px; }
-              @media print { .print-btn { display: none; } .receipt-container { box-shadow: none; border: none; padding: 0; } }
-            </style>
-          </head>
-          <body>
-            <div class="receipt-container">
-              <div class="header">
-                <h1>AAROH Physiotherapy & Rehabilitation Center</h1>
-                <p>Provisional Booking Receipt</p>
-                <p style="font-size: 0.85em; margin-top: 5px;">Generated on: ${receiptDate}</p>
-              </div>
-              <table class="details-table">
-                <tr><th>Patient Name</th><td>${d.name}</td></tr>
-                <tr><th>Phone Number</th><td>${d.phone}</td></tr>
-                <tr><th>Service Requested</th><td>${d.service}</td></tr>
-                <tr><th>Assigned Doctor</th><td>${d.doctor}</td></tr>
-                <tr><th>Appointment Date</th><td>${d.date}</td></tr>
-                <tr><th>Appointment Time</th><td>${d.time}</td></tr>
-                <tr><th>Payment Method</th><td>${d.paymentMethod}</td></tr>
-                <tr><th>Payment Status</th><td style="font-weight: bold; color: ${d.paymentMethod === 'Pay Now' ? '#10b981' : '#f59e0b'};">${d.paymentMethod === 'Pay Now' ? 'PAID' : 'PENDING'}</td></tr>
-                <tr class="amount-row"><th>Consultation Fee</th><td>₹400</td></tr>
-              </table>
-              
-              <div class="footer">
-                <p><strong>Note:</strong> This is a provisional booking acknowledgement generated from the website. If you selected "Pay Now", your appointment will be confirmed upon payment realization via PhonePe/UPI.</p>
-                <p>Clinic Address: Lucknow, Uttar Pradesh | Phone: +91 9026360072</p>
-              </div>
-              <button class="print-btn" onclick="window.print()">Print / Save as PDF</button>
-            </div>
-            <script>
-              window.onload = function() { window.print(); }
-            </script>
-          </body>
-          </html>
-        `;
-        
-        receiptWindow.document.write(html);
-        receiptWindow.document.close();
-      });
-    }
   }
 
   // ────────────────────────────────────────────────
@@ -425,6 +363,198 @@ document.addEventListener('DOMContentLoaded', () => {
       scrollHint.style.opacity = window.scrollY > 100 ? '0' : '1';
     }
   }, { passive: true });
+
+  // ────────────────────────────────────────────────
+  // 10. EXPERTS CAROUSEL INTERACTION
+  // ────────────────────────────────────────────────
+  const expertData = [
+    {
+      name: "Dr. Shashi Prakesh Yadav",
+      role: "Specialist Physiotherapist",
+      specialization: "Spinal & Post-Surgical Care",
+      experience: "9+ Years",
+      qualification: "BPT, MPT",
+      image: "shashi.jpg",
+      bio: "Dr. Shashi specializes in advancing non-invasive spinal treatments and targeted post-surgical recovery regimens. He utilizes modern evidence-based practices to ensure pain-free living.",
+      expertise: ["Spinal & Neck Pain", "Post-Surgery Rehab", "Cupping Therapy", "Manual Therapy"]
+    },
+    {
+      name: "Dr. Swayamprabha Rajpoot",
+      role: "Lead Physiotherapist",
+      specialization: "Sports Injury & Pediatric Physiotherapy",
+      experience: "8+ Years",
+      qualification: "BPT, MPT",
+      image: "swayamprabha.jpg",
+      bio: "With a focus on athlete recovery and pediatric care, Dr. Swayamprabha helps individuals of all ages regain peak physical performance through dynamic and structured therapies.",
+      expertise: ["Sports Rehabilitation", "Pediatric Care", "Knee & Joint Pain", "Electrotherapy"]
+    },
+    {
+      name: "Dr. Belal Ahmed",
+      role: "Senior Physiotherapist",
+      specialization: "Neurological & Orthopedic Rehabilitation",
+      experience: "10+ Years",
+      qualification: "BPT, MPT",
+      image: "belal.jpg",
+      bio: "Dr. Belal brings over a decade of hands-on expertise in treating complex neurological conditions and aiding rapid recovery in orthopedic surgeries. His patient-first approach aims at complete functionality restoration.",
+      expertise: ["Orthopedic Rehabilitation", "Stroke Recovery", "Spinal Cord Injuries", "Pain Management"]
+    }
+  ];
+
+  function initExpertCarousel() {
+    const track = document.getElementById('expertTrack');
+    const panel = document.getElementById('expertInfoPanel');
+    const counter = document.getElementById('expertCounter');
+    if (!track || !panel) return;
+
+    const total = expertData.length;
+    let currentIndex = 0;
+    let isAnimating = false;
+
+    // Build slides
+    track.innerHTML = expertData.map((exp, i) => `
+      <div class="expert-slide" data-index="${i}" role="button" tabindex="0" aria-label="Select ${exp.name}">
+        <div class="expert-slide-inner">
+          <img src="${exp.image}" alt="${exp.name}" loading="lazy">
+          <div class="expert-slide-name">${exp.name}</div>
+        </div>
+      </div>
+    `).join('');
+
+    const slides = Array.from(track.querySelectorAll('.expert-slide'));
+    const angleStep = 360 / total;
+    // radius scales with viewport
+    function getRadius() {
+      const w = track.parentElement.offsetWidth;
+      return Math.min(Math.max(w * 0.28, 180), 320);
+    }
+
+    function positionSlides(animate = true) {
+      const r = getRadius();
+      slides.forEach((sl, i) => {
+        const relAngle = ((i - currentIndex) * angleStep % 360 + 360) % 360;
+        const rad = (relAngle * Math.PI) / 180;
+        const x = Math.sin(rad) * r;
+        const z = Math.cos(rad) * r - r;
+        const scale = 0.55 + 0.45 * ((z + r) / (2 * r));
+        const opacity = 0.25 + 0.75 * ((z + r) / (2 * r));
+        const zIndex = Math.round((z + r) * 10);
+        const isActive = i === currentIndex;
+
+        sl.style.transition = animate ? 'transform 0.7s cubic-bezier(0.23,1,0.32,1), opacity 0.7s ease' : 'none';
+        sl.style.transform = `translateX(${x}px) translateZ(${z}px) scale(${isActive ? 1.18 : scale})`;
+        sl.style.opacity = isActive ? '1' : String(Math.max(opacity, 0.3));
+        sl.style.zIndex = isActive ? 100 : zIndex;
+        sl.classList.toggle('active', isActive);
+      });
+    }
+
+    function renderPanel(index, dir = 1) {
+      const exp = expertData[index];
+      counter.textContent = `${String(index + 1).padStart(2,'0')} / ${String(total).padStart(2,'0')}`;
+      const outY = dir > 0 ? -24 : 24;
+      gsap.to(panel, { opacity: 0, y: outY, duration: 0.25, ease: 'power2.in',
+        onComplete: () => {
+          panel.innerHTML = `
+            <div class="ei-header">
+              <div>
+                <h3 class="ei-name">${exp.name}</h3>
+                <div class="ei-role">${exp.role} &bull; ${exp.specialization}</div>
+                <div class="ei-exp">${exp.experience} Experience &bull; ${exp.qualification}</div>
+              </div>
+              <div class="ei-actions">
+                <a href="#appointment" class="btn btn-outline" style="color:var(--teal-primary);border-color:var(--teal-primary);padding:10px 24px;">Book Appointment</a>
+              </div>
+            </div>
+            <div class="ei-body">
+              <div class="ei-bio"><p>${exp.bio}</p></div>
+              <div class="ei-specs">
+                <h4>Specializes In:</h4>
+                <ul>${exp.expertise.map(s => `<li>${s}</li>`).join('')}</ul>
+              </div>
+            </div>`;
+          gsap.fromTo(panel, { opacity: 0, y: -outY }, { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out' });
+        }
+      });
+    }
+
+    function goTo(newIndex, dir = 1) {
+      if (isAnimating) return;
+      isAnimating = true;
+      if (newIndex < 0) newIndex = total - 1;
+      if (newIndex >= total) newIndex = 0;
+      const prevIndex = currentIndex;
+      currentIndex = newIndex;
+      positionSlides(true);
+      renderPanel(currentIndex, newIndex > prevIndex ? 1 : -1);
+      setTimeout(() => { isAnimating = false; }, 750);
+    }
+
+    // Init
+    positionSlides(false);
+    renderPanel(0);
+    counter.textContent = `01 / ${String(total).padStart(2,'0')}`;
+
+    // Reposition on resize
+    window.addEventListener('resize', () => positionSlides(false));
+
+    // Buttons
+    document.querySelector('.prev-expert')?.addEventListener('click', () => { goTo(currentIndex - 1, -1); resetAuto(); });
+    document.querySelector('.next-expert')?.addEventListener('click', () => { goTo(currentIndex + 1, 1); resetAuto(); });
+
+    // Click slide
+    slides.forEach((sl, i) => {
+      sl.addEventListener('click', () => { if (i !== currentIndex) { goTo(i, i > currentIndex ? 1 : -1); resetAuto(); } });
+      sl.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') sl.click(); });
+    });
+
+    // Drag / swipe
+    let dragStartX = 0, dragging = false;
+    const wrapper = document.querySelector('.experts-interactive-wrapper');
+
+    wrapper.addEventListener('mousedown', e => { dragStartX = e.clientX; dragging = true; pauseAuto(); });
+    window.addEventListener('mouseup', e => {
+      if (!dragging) return;
+      const d = dragStartX - e.clientX;
+      if (Math.abs(d) > 40) goTo(d > 0 ? currentIndex + 1 : currentIndex - 1, d > 0 ? 1 : -1);
+      dragging = false;
+      resumeAuto();
+    });
+    wrapper.addEventListener('touchstart', e => { dragStartX = e.touches[0].clientX; pauseAuto(); }, { passive: true });
+    wrapper.addEventListener('touchend', e => {
+      const d = dragStartX - e.changedTouches[0].clientX;
+      if (Math.abs(d) > 40) goTo(d > 0 ? currentIndex + 1 : currentIndex - 1, d > 0 ? 1 : -1);
+      resumeAuto();
+    });
+
+    // Keyboard
+    wrapper.setAttribute('tabindex', '0');
+    wrapper.addEventListener('keydown', e => {
+      if (e.key === 'ArrowRight') goTo(currentIndex + 1, 1);
+      if (e.key === 'ArrowLeft') goTo(currentIndex - 1, -1);
+    });
+
+    // Auto-play
+    let autoTimer;
+    function startAuto() { autoTimer = setInterval(() => goTo(currentIndex + 1, 1), 4500); }
+    function pauseAuto() { clearInterval(autoTimer); }
+    function resumeAuto() { pauseAuto(); startAuto(); }
+    function resetAuto() { resumeAuto(); }
+
+    wrapper.addEventListener('mouseenter', pauseAuto);
+    wrapper.addEventListener('mouseleave', () => { if (!dragging) resumeAuto(); });
+
+    // Start when visible
+    new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) startAuto(); else pauseAuto();
+    }, { threshold: 0.2 }).observe(wrapper);
+
+    // prefers-reduced-motion
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      slides.forEach(sl => sl.style.transition = 'none');
+    }
+  }
+
+  initExpertCarousel();
 
   console.log('%c🏥 Aaroh Physiotherapy & Rehabilitation', 'color:#0d9488;font-size:16px;font-weight:bold;');
   console.log('%cWebsite loaded successfully.', 'color:#63f5be;');
